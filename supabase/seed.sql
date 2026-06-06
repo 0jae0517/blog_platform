@@ -1,0 +1,7 @@
+INSERT INTO public.posts (title, excerpt, content, category, tags, image_url, read_time, created_at)
+VALUES 
+('Fearless Concurrency in High-Throughput Systems', 'Exploring how Rust''s ownership model prevents data races at compile time...', '## Introduction\n\nRust is amazing.', 'Rust', ARRAY['Rust', 'Concurrency'], '/images/rust-code.png', '8 min read', '2024-10-24T00:00:00Z'),
+('Migrating from Monolith to Event-Driven Microservices', 'A practical post-mortem on breaking down a 5-year-old monolith...', '## Monoliths\n\nThey grow fast.', 'Architecture', ARRAY['Architecture', 'Microservices'], '/images/server-rack.png', '12 min read', '2024-10-18T00:00:00Z'),
+('Compiling C++ Game Engines to the Browser', 'Pushing the limits of web performance. How we used Emscripten...', '## WebAssembly\n\nIt runs fast.', 'WebAssembly', ARRAY['WebAssembly', 'C++'], '/images/cpu-chip.png', '15 min read', '2024-10-05T00:00:00Z'),
+('Understanding the Actor Model in Distributed Systems', 'An introduction to the actor model and how it simplifies state management...', '## Actor Model\n\nEverything is an actor.', 'Architecture', ARRAY['Architecture', 'Distributed Systems'], '/images/server-rack.png', '10 min read', '2024-09-28T00:00:00Z'),
+('Getting Started with WebAssembly and Rust', 'Learn the basics of compiling Rust code to WebAssembly...', '## Getting Started\n\nRust to WASM.', 'WebAssembly', ARRAY['WebAssembly', 'Rust'], '/images/rust-code.png', '6 min read', '2024-09-15T00:00:00Z');

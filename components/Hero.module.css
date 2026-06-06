@@ -1,0 +1,70 @@
+.hero {
+  padding: 6rem 4rem;
+  background-color: #0d1117;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #58a6ff;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #8b949e;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  background-color: #58a6ff;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primaryBtn:hover {
+  background-color: #3182ce;
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.secondaryBtn:hover {
+  background-color: #21262d;
+}

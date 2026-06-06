@@ -1,0 +1,108 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  background-color: #0d1117;
+  border-bottom: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  color: #c9d1d9;
+}
+
+.link.active {
+  color: #58a6ff;
+  border-bottom-color: #58a6ff;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: #8b949e;
+}
+
+.searchInput {
+  padding: 0.5rem 1rem 0.5rem 2.2rem;
+  border-radius: 4px;
+  border: 1px solid #30363d;
+  background-color: #161b22;
+  color: #c9d1d9;
+  font-size: 0.9rem;
+  outline: none;
+  width: 250px;
+}
+
+.searchInput:focus {
+  border-color: #58a6ff;
+}
+
+.loginBtn {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.loginBtn:hover {
+  background-color: #21262d;
+}
+
+.signupBtn {
+  background-color: #58a6ff;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.signupBtn:hover {
+  background-color: #3182ce;
+}
