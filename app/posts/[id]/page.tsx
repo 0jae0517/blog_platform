@@ -3,9 +3,12 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import rehypeSlug from 'rehype-slug';
 import { ThumbsUp, Share2, Bookmark, Heart } from 'lucide-react';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
+import ReadingProgressBar from '../../../components/ReadingProgressBar';
+import TableOfContents from '../../../components/TableOfContents';
 import styles from './page.module.css';
 
 export default async function PostDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -32,9 +35,13 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
   const authorName = "0Jae";
   const authorRole = "Senior Backend Engineer at 0_Log. Passionate about distributed systems, rust, and making observability less painful.";
   const authorAvatar = "https://ui-avatars.com/api/?name=0Jae&background=random";
+  
+  const wordCount = post.content ? post.content.split(/\s+/).length : 0;
+  const calculatedReadTime = post.read_time || `${Math.max(1, Math.ceil(wordCount / 200))}분 소요`;
 
   return (
     <div className={styles.page}>
+      <ReadingProgressBar />
       <Navbar />
       
       <main className={styles.main}>
@@ -59,7 +66,7 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
             <img src={authorAvatar} alt={authorName} width={40} height={40} className={styles.avatar} />
             <div>
               <span className={styles.authorName}>{authorName}</span>
-              <span className={styles.postDate}>{date} • {post.read_time}</span>
+              <span className={styles.postDate}>{date} • {calculatedReadTime}</span>
             </div>
           </div>
           
@@ -75,25 +82,31 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
           <Image src={post.image_url} alt={post.title} fill className={styles.thumbnail} />
         </div>
 
-        <article className={styles.content}>
-          <ReactMarkdown>{post.content || ''}</ReactMarkdown>
-        </article>
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', position: 'relative' }}>
+          <article className={styles.content} style={{ flex: 1, minWidth: 0 }}>
+            <ReactMarkdown rehypePlugins={[rehypeSlug]}>{post.content || ''}</ReactMarkdown>
+          </article>
+
+          <aside style={{ width: '250px', flexShrink: 0, display: 'none' }} className="md:block">
+            <TableOfContents content={post.content || ''} />
+          </aside>
+        </div>
 
         <div className={styles.authorBox}>
           <img src={authorAvatar} alt={authorName} width={64} height={64} className={styles.authorBoxAvatar} />
           <div className={styles.authorBoxContent}>
-            <h3 className={styles.authorBoxName}>Written by {authorName}</h3>
+            <h3 className={styles.authorBoxName}>작성자: {authorName}</h3>
             <p className={styles.authorBoxBio}>{authorRole}</p>
-            <button className={styles.followBtn}>Follow on Twitter</button>
+            <button className={styles.followBtn}>X(Twitter)에서 팔로우</button>
           </div>
         </div>
 
         <section className={styles.discussions}>
-          <h3 className={styles.discussionsTitle}>Discussions (2)</h3>
+          <h3 className={styles.discussionsTitle}>댓글 및 토론 (2)</h3>
           
-          <textarea className={styles.commentInput} placeholder="Add to the discussion..."></textarea>
+          <textarea className={styles.commentInput} placeholder="자유롭게 의견을 남겨주세요..."></textarea>
           <div style={{ overflow: 'hidden' }}>
-            <button className={styles.postCommentBtn}>Post Comment</button>
+            <button className={styles.postCommentBtn}>댓글 작성</button>
           </div>
 
           <div className={styles.commentsList}>
@@ -102,16 +115,15 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
               <div className={styles.commentContent}>
                 <div className={styles.commentHeader}>
                   <span className={styles.commentAuthor}>Sarah Jenkins</span>
-                  <span className={styles.commentTime}>2 hours ago</span>
+                  <span className={styles.commentTime}>2시간 전</span>
                 </div>
                 <p className={styles.commentText}>
-                  Great write-up. We recently migrated to OpenTelemetry and the context
-                  propagation was definitely the trickiest part to get right across our Go and
-                  Node services. Did you encounter issues with header case sensitivity in
-                  older proxy setups?
+                  훌륭한 글입니다. 최근에 OpenTelemetry로 마이그레이션했는데,
+                  Go와 Node 서비스 간의 컨텍스트 전파를 제대로 맞추는 것이 가장 까다로웠습니다.
+                  오래된 프록시 설정에서 헤더 대소문자 구분 문제가 발생하지는 않으셨나요?
                 </p>
                 <div className={styles.commentActions}>
-                  <button className={styles.replyBtn}>Reply</button>
+                  <button className={styles.replyBtn}>답글</button>
                   <button className={styles.replyBtn}><Heart size={14} /> 1</button>
                 </div>
               </div>
@@ -122,14 +134,14 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
               <div className={styles.commentContent}>
                 <div className={styles.commentHeader}>
                   <span className={styles.commentAuthor}>Marcus Reed</span>
-                  <span className={styles.commentTime}>5 hours ago</span>
+                  <span className={styles.commentTime}>5시간 전</span>
                 </div>
                 <p className={styles.commentText}>
-                  I strongly agree with the observability quote. It's too often treated as an
-                  afterthought rather than a core requirement during the design phase.
+                  옵저버빌리티에 대한 부분 전적으로 동의합니다. 설계 단계에서 핵심 요구사항으로
+                  다뤄지기보다는 나중에 덧붙이는 경우가 너무 많죠.
                 </p>
                 <div className={styles.commentActions}>
-                  <button className={styles.replyBtn}>Reply</button>
+                  <button className={styles.replyBtn}>답글</button>
                   <button className={styles.replyBtn}><Heart size={14} /> 0</button>
                 </div>
               </div>

@@ -5,15 +5,15 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className={styles.title}>
-          깊은 집중.<br />
-          <span className={styles.highlight}>깔끔한 코드.</span>
+          몰입의 순간,<br />
+          <span className={styles.highlight}>견고한 코드.</span>
         </h1>
         <p className={styles.subtitle}>
-          고성능 시스템을 구축하기 위한 고급 아키텍처 패턴, 함수형 패러다임, 그리고 엔지니어링의 뒷이야기를 탐구합니다. 빌더를 위해 만들어졌습니다.
+          성능의 한계를 뛰어넘는 시스템 아키텍처, 그리고 개발자들의 치열한 고민의 흔적. 더 나은 소프트웨어를 고민하는 모든 빌더(Builder)들을 위해 기록합니다.
         </p>
         <div className={styles.actions}>
-          <button className={styles.primaryBtn}>Read Latest</button>
-          <button className={styles.secondaryBtn}>Subscribe <span>⚲</span></button>
+          <button className={styles.primaryBtn}>최신 아티클 읽기</button>
+          <button className={styles.secondaryBtn}>뉴스레터 구독 <span>✉</span></button>
         </div>
       </div>
     </section>

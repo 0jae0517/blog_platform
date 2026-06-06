@@ -73,7 +73,7 @@ export default function Home() {
       
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Latest Articles</h2>
+          <h2 className={styles.sectionTitle}>최신 인사이트</h2>
           <div className={styles.filters}>
             {categories.map((cat) => (
               <button 
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
 
         {loading && page === 1 ? (
-          <p className={styles.emptyState}>Loading articles...</p>
+          <p className={styles.emptyState}>아티클을 불러오는 중입니다...</p>
         ) : (
           <>
             <div className={styles.grid}>
@@ -96,14 +96,14 @@ export default function Home() {
                 <ArticleCard key={post.id} article={post} />
               ))}
               {posts.length === 0 && !loading && (
-                <div className={styles.emptyState}>No articles found.</div>
+                <div className={styles.emptyState}>아직 등록된 아티클이 없습니다.</div>
               )}
             </div>
             
             {hasMore && (
               <div className={styles.loadMoreContainer}>
                 <button className={styles.loadMoreBtn} onClick={loadMore} disabled={loading}>
-                  {loading ? 'Loading...' : 'Load More Articles'} <ChevronDown size={16} />
+                  {loading ? '불러오는 중...' : '아티클 더 보기'} <ChevronDown size={16} />
                 </button>
               </div>
             )}
