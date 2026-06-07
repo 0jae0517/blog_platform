@@ -20,6 +20,21 @@
 
 ---
 
+## 📸 Screenshots
+
+### 1. 메인 화면 (Main Home)
+![Main Page](./asset/readme/main.png)
+
+### 2. 마크다운 에디터 (Write Post)
+![Write Page](./asset/readme/write.png)
+
+### 3. 인증 화면 (Login / Signup)
+![Login Page](./asset/readme/login.png)
+
+<br/>
+
+---
+
 본 프로젝트는 개발자가 자신의 지식과 경험을 체계적으로 기록하고 공유할 수 있도록 돕는 웹 서비스입니다.
 SSR(Server-Side Rendering)을 통한 SEO 최적화와 사용자 경험 향상을 목표로 기획되었으며, 데이터베이스 설계부터 UI/UX 구현까지 전체 풀스택 파이프라인을 다룹니다.
 
